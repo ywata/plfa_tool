@@ -229,9 +229,9 @@ sub checkUnicodeInstruction{
 
     open(my $F, "<:encoding(UTF-8)", $file) or die "$!:$file";
     while(my $l = <$F>){
-	if($l =~ m|^    (.)  (U\+[0-9A-F]+)  ([A-Z\- ]+)|){
+	if($l =~ m|^\s+(.)\s+(U\+[0-9A-F]+)\s+([A-Z\- ]+)|){
 	    &checkUnicodeInstructionValidity($1, $2, $3);
-	}elsif($l =~ m|^    (.)|){
+	}elsif($l =~ m|^\s*(.)|){
 	    &checkUnicodeCodepoint($1);
 	}
     }

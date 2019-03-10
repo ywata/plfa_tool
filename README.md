@@ -5,7 +5,7 @@ Some scripts for PLFA
 
 `generate_unicode.pl` provides two main input format.
 
-1.
+1. Showing or updating unicode instruction
 
 `generate_unicode.pl [--debug|--update] chapter_file unicode_instruction_file`
 With this format, the perl script shows or updates unicode instructions for unicode characters
@@ -27,7 +27,8 @@ This format shows all the unicode instructions that appears in files specified i
 This format updates unicode instructions to all the unicode instructions that appears in files specified in `f` on screen.
 
 
-2.
+2. Showing missing unicode codepoint and name.
+
 `generate_unicode.pl unicode_instruction_file`
 With this format, the perl script shows unicode code point and unicode character name if
 a unicode character is in a line. This helps you when new unicode character is added in a file.

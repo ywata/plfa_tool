@@ -5,6 +5,9 @@ use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat );
 use Unicode::UCD qw/charinfo/;
 use utf8;
 
+my $VERSION = "0.1.0";
+my $print_version = 0;
+
 my $MAX_SHOW_TIMES = 3;
 my $debug    = 0;
 my $update   = 0;
@@ -15,13 +18,19 @@ $SIG{__WARN__} = sub {}; # drop it. GetOption raise warn if unknown option is pr
 my $opt = GetOptions(
     "help" => sub {usage()},
     "debug" => \$debug,
-    "update" => \$update
+    "update" => \$update,
+    "version" => \$print_version
     );
 $SIG{__WARN__} = $oldsignal; # recover handler.
 
 binmode(STDOUT, ":utf8");
 binmode(STDERR, ":utf8");
 binmode(STDIN, "<:utf8");
+
+if($print_version){
+    print "version:$VERSION\n";
+    exit 1;
+}
 
 if($#ARGV == 1){
     my $CHAPTERS             = $ARGV[0];

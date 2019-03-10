@@ -73,11 +73,9 @@ sub parseChapterLine{
 	if($l =~ m|(\d+)\s+([a-zA-Z0-9\.]+)$|){
 	    $chapter_max_show{$2} = $1;
 	    push @chapters, $2;
-	    print ">>$2 --> $1\n";
 	}elsif($l =~ m|([a-zA-Z0-9\.]+)|){
 	    $chapter_max_show{$1} = $MAX_SHOW_TIMES;
 	    push @chapters, $1;
-	    print "==$1 --> $MAX_SHOW_TIMES\n";
 	}
     }
     return(\@chapters, %chapter_max_show);
@@ -95,7 +93,6 @@ sub force_replace_instructions{
     my($instruction_block);
 
     $contents =~ s/\n(((    .  U\+[0-9A-F]+) .+\n)+)/\n$message/;
-    print "$file\n";
 
     open(my $F, ">:encoding(UTF-8)", $file) or die $!;
     print $F $contents;

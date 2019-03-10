@@ -1,0 +1,72 @@
+diff --git a/unicode_instruction/test/1.org b/unicode_instruction/test/1.org
+index 7a58413..a551a7d 100644
+--- a/unicode_instruction/test/1.org
++++ b/unicode_instruction/test/1.org
+@@ -1,4 +1,6 @@
+     α -- 1 2 3 4 5 6 7
+     β -- 1   2 3 4 5 6
+     γ -- 1       2   3
+-    ξ  U+03BE  GREEK SMALL LETTER XI
++    α  U+03B1  GREEK SMALL LETTER ALPHA
++    β  U+03B2  GREEK SMALL LETTER BETA
++    γ  U+03B3  GREEK SMALL LETTER GAMMA
+diff --git a/unicode_instruction/test/2.org b/unicode_instruction/test/2.org
+index 5d3a208..73b7b92 100644
+--- a/unicode_instruction/test/2.org
++++ b/unicode_instruction/test/2.org
+@@ -1,4 +1,4 @@
+     α -- 1 2 3 4 5 6 7
+ This message should be here. 
+-    ξ  U+03BE  GREEK SMALL LETTER XI
++    α  U+03B1  GREEK SMALL LETTER ALPHA
+ This message should be here, too.
+diff --git a/unicode_instruction/test/3.org b/unicode_instruction/test/3.org
+index 40e20f6..a429f4a 100644
+--- a/unicode_instruction/test/3.org
++++ b/unicode_instruction/test/3.org
+@@ -1,4 +1,4 @@
+     α -- 1 2 3 4 5 6 7
+     β -- 1   2 3 4 5 6
+-    ξ  U+03BE  GREEK SMALL LETTER XI -- multiple unicode instructions
+-    ξ  U+03BE  GREEK SMALL LETTER XI -- multiple unicode instructions
++    α  U+03B1  GREEK SMALL LETTER ALPHA
++    β  U+03B2  GREEK SMALL LETTER BETA
+diff --git a/unicode_instruction/test/4.org b/unicode_instruction/test/4.org
+index 06ff952..dd29d7e 100644
+--- a/unicode_instruction/test/4.org
++++ b/unicode_instruction/test/4.org
+@@ -1,3 +1,3 @@
+     α -- 1 2 3 4 5 6 7
+     β -- 1   2 3 4 5 6
+-    ξ  U+03BE  GREEK SMALL LETTER XI
++    β  U+03B2  GREEK SMALL LETTER BETA
+diff --git a/unicode_instruction/test/5.org b/unicode_instruction/test/5.org
+index 6b5ee54..d046722 100644
+--- a/unicode_instruction/test/5.org
++++ b/unicode_instruction/test/5.org
+@@ -2,4 +2,5 @@
+     β -- 1   2 3 4 5 6
+     γ -- 1       2   3
+     δ --         1 2 3
+-    ξ  U+03BE  GREEK SMALL LETTER XI
++    γ  U+03B3  GREEK SMALL LETTER GAMMA
++    δ  U+03B4  GREEK SMALL LETTER DELTA
+diff --git a/unicode_instruction/test/6.org b/unicode_instruction/test/6.org
+index 6046799..598e2b4 100644
+--- a/unicode_instruction/test/6.org
++++ b/unicode_instruction/test/6.org
+@@ -1,4 +1,4 @@
+     α -- 1 2 3 4 5 6 7
+     β -- 1   2 3 4 5 6
+     δ --         1 2 3
+-    ξ  U+03BE  GREEK SMALL LETTER XI
++    δ  U+03B4  GREEK SMALL LETTER DELTA
+diff --git a/unicode_instruction/test/7.org b/unicode_instruction/test/7.org
+index 6b5ee54..fd98be7 100644
+--- a/unicode_instruction/test/7.org
++++ b/unicode_instruction/test/7.org
+@@ -2,4 +2,3 @@
+     β -- 1   2 3 4 5 6
+     γ -- 1       2   3
+     δ --         1 2 3
+-    ξ  U+03BE  GREEK SMALL LETTER XI

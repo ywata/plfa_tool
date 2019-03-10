@@ -7,7 +7,7 @@ Some scripts for PLFA
 
 `generate_unicode.pl` provides two main input format.
 
-1. Showing or updating unicode instruction
+#### 1. Showing or updating unicode instruction
 
 `generate_unicode.pl [--debug|--update] chapter_file unicode_instruction_file`
 
@@ -37,7 +37,7 @@ If unicode instruction is not defined unicode_instruction_file, you will see
 This format updates unicode instructions to all the unicode instructions that appears in files specified in `f` on screen.
 
 
-2. Showing missing unicode codepoint and name.
+#### 2. Showing missing unicode codepoint and name.
 
 `generate_unicode.pl unicode_instruction_file`
 

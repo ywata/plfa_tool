@@ -30,7 +30,7 @@ This format updates unicode instructions in files specified in `f`.
 This format shows all the unicode instructions that appears in files specified in `f` on screen.
 Usig this format, you can check all the unicode characters that appeared have expected unicode instruction.
 If unicode instruction is not defined unicode_instruction_file, you will see
-`C not found`.
+`C not found` where `C` is a unicode character.
 
 `generate_unicode.pl --debug --update chapter_file unicode_instruction_file`
 

@@ -8,7 +8,7 @@ use utf8;
 my $MAX_SHOW_TIMES = 3;
 my $debug    = 0;
 my $update   = 0;
-
+my $all_found = 1;
 
 my $oldsignal = $SIG{__WARN__};
 $SIG{__WARN__} = sub {}; # drop it. GetOption raise warn if unknown option is provided.
@@ -55,6 +55,9 @@ $file
 $message
 EOF
 	}
+    }
+    if(!$all_found){
+	exit 1;
     }
 }elsif($#ARGV == 0){
     my $UNICODE_INSTRUCTIONS = $ARGV[0];
@@ -153,6 +156,7 @@ sub format{
 	    $found .= "    $c$instr{$c}\n";
 	}else{
 	    $missing .= "$c not found\n";
+	    $all_found = 0;
 	}
     }
     return ($found, $missing);

@@ -1,0 +1,20 @@
+Naturals.lagda 
+Induction.lagda
+Relations.lagda
+Equality.lagda
+Isomorphism.lagda
+Connectives.lagda
+Negation.lagda
+Quantifiers.lagda
+Decidable.lagda
+Lists.lagda
+
+2 Lambda.lagda
+2 Properties.lagda
+2 DeBruijn.lagda
+2 More.lagda
+2 Bisimulation.lagda
+2 Inference.lagda
+2 Untyped.lagda
+
+2 Quantitative.lagda

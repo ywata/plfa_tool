@@ -47,12 +47,12 @@ a unicode character is in a line. This helps you when new unicode character is a
 ### Expected work flow
 
 - To check all the expected unicode characters are defined in unicode_instruction_file.
-  Use `generate_unicode.pl --debug chapter_file unicode_instruction_file`.
+  Use ```generate_unicode.pl --debug chapter_file unicode_instruction_file```.
 - To add missing unicode instruction to unicode_instruction_file,
   put the character at the end of unicode_instruction_file and run
-  `generate_unicode.pl unicode_instruction_file`
+  ```generate_unicode.pl unicode_instruction_file```
   Please copy the lines printed on scree to unicode_instruction_file.
 - To update unicode instruction defined in .lagda flle, use
-  `generate_unicode.pl --update chapter_file unicede_instruction_file`
+  ```generate_unicode.pl --update chapter_file unicede_instruction_file```
   Please run `git diff` to see if the changes are OK.
 

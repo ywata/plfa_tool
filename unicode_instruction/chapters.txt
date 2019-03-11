@@ -1,13 +1,13 @@
-Naturals.lagda 
-Induction.lagda
-Relations.lagda
-Equality.lagda
-Isomorphism.lagda
-Connectives.lagda
-Negation.lagda
-Quantifiers.lagda
-Decidable.lagda
-Lists.lagda
+3 Naturals.lagda 
+3 Induction.lagda
+3 Relations.lagda
+3 Equality.lagda
+3 Isomorphism.lagda
+3 Connectives.lagda
+3 Negation.lagda
+3 Quantifiers.lagda
+3 Decidable.lagda
+3 Lists.lagda
 
 2 Lambda.lagda
 2 Properties.lagda

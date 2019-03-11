@@ -51,11 +51,11 @@ This helps you when new unicode character is added in a file.
 - To check all the expected unicode characters are defined in unicode_instruction_file.
   Use
   ```generate_unicode.pl --debug chapter_file unicode_instruction_file```.
-- To add missing unicode instruction to unicode_instruction_file,
-  put the character at the end of unicode_instruction_file and run
+- To add missing unicode instruction to `unicode_instruction_file`,
+  put the character at the end of `unicode_instruction_file` and run
   ```generate_unicode.pl unicode_instruction_file```
-  Please copy the lines printed on scree to unicode_instruction_file.
+  `--update` option is not currently supported for this purpose, copy and paste the result is needed.
 - To update unicode instruction defined in .lagda flle, use
   ```generate_unicode.pl --update chapter_file unicede_instruction_file```
-  Please run `git diff` to see if the changes are OK.
+  `git diff` will show you the changes.
 

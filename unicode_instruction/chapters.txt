@@ -16,5 +16,3 @@
 2 Bisimulation.lagda
 2 Inference.lagda
 2 Untyped.lagda
-
-2 Quantitative.lagda

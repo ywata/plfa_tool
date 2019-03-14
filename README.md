@@ -37,6 +37,9 @@ If unicode instruction is not defined unicode_instruction_file, you will see
 
 This format updates unicode instructions to all the unicode instructions that appears in files specified in `chapter_file` on screen.
 
+`generate_unicode.pl --xref chapter_file unicode_instruction_file
+
+
 
 #### 2. Showing missing unicode codepoint and name.
 

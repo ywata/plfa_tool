@@ -5,21 +5,23 @@ use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat );
 use Unicode::UCD qw/charinfo/;
 use utf8;
 
-my $VERSION = "0.1.0";
+my $VERSION = "0.2.0";
 my $print_version = 0;
 
 my $MAX_SHOW_TIMES = 3;
 my $debug    = 0;
 my $update   = 0;
 my $all_found = 1;
+my $xref     = 0;
 
 my $oldsignal = $SIG{__WARN__};
 $SIG{__WARN__} = sub {}; # drop it. GetOption raise warn if unknown option is provided.
 my $opt = GetOptions(
-    "help" => sub {usage()},
     "debug" => \$debug,
+    "help" => sub {usage()},
     "update" => \$update,
-    "version" => \$print_version
+    "version" => \$print_version,
+    "xref" => \$xref
     );
 $SIG{__WARN__} = $oldsignal; # recover handler.
 
@@ -41,7 +43,7 @@ if($#ARGV == 1){
     my(@chapters) = @{$chapter};
     my %unicode_instructions = &readUnicode($UNICODE_INSTRUCTIONS);
 
-    my ($all, $selected) = &generate_characters(\@chapters, \%unicode_instructions, , \%chapter_max_instructions);
+    my ($all, $selected, $first_time) = &generate_characters(\@chapters, \%unicode_instructions, , \%chapter_max_instructions);
 
     my %target;
 
@@ -56,12 +58,21 @@ if($#ARGV == 1){
     foreach my $file (@chapters){
 	my @chars = @{$target{$file}};
 	my $message = &generate_instruction(\@chars, \%unicode_instructions);
-	if($update){
-	    &force_replace_instructions($file, $message);
-	}else{
-	    print <<"EOF";
+	if(!$xref){
+	    if($update){
+		&force_replace_instructions($file, $message);
+	    }else{
+		print <<"EOF";
 $file
 $message
+EOF
+	    }
+	}
+    }
+    if($xref){
+	foreach my $c (sort(keys %{$first_time})){
+	    print <<"EOF";
+    $c  ${$first_time}{$c}
 EOF
 	}
     }
@@ -120,6 +131,7 @@ sub generate_characters{
     my %char_counter;
     my %all;
     my %result;
+    my %first_time;
     foreach my $file (@chapters){
 	my $contents = &readFile($file);
 	my @uniq = sort(&uniq(&dropAscii($contents)));
@@ -130,14 +142,18 @@ sub generate_characters{
 	    if($char_counter{$c} <= $chapter_max_instructions{$file}){
 		push @r, $c;
 	    }
+	    if(!defined($first_time{$c})){
+		$first_time{$c} = $file;
+	    }
 	}
+
 	$all{$file} = \@uniq;
 	$result{$file} = \@r;
     }
-    return (\%all, \%result);
+    return (\%all, \%result, \%first_time);
 }
 
-# 
+#
 sub generate_instruction{
     my($characters, $uni_instr) = @_;
     my(@characters) = @{$characters};
@@ -194,7 +210,7 @@ sub dropAscii{
 sub readFile{
     my($lagda_file) = @_;
     local $/;
-    open(my $LAGDA_FILE, "<:encoding(UTF-8)", $lagda_file) or die $!;
+    open(my $LAGDA_FILE, "<:encoding(UTF-8)", $lagda_file) or die "$!:$lagda_file";
     my $lagda = <$LAGDA_FILE>;  # Read entire file in string!
     close($LAGDA_FILE);
 

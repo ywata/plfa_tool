@@ -1,4 +1,4 @@
-3 Naturals.lagda 
+3 Naturals.lagda
 3 Induction.lagda
 3 Relations.lagda
 3 Equality.lagda
